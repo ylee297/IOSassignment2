@@ -14,6 +14,7 @@
 		76EA03BB23834C6C009B3B12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76EA03BA23834C6C009B3B12 /* Assets.xcassets */; };
 		76EA03BE23834C6C009B3B12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76EA03BC23834C6C009B3B12 /* LaunchScreen.storyboard */; };
 		76EA03C923834C6C009B3B12 /* assignment2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EA03C823834C6C009B3B12 /* assignment2Tests.swift */; };
+		96F0211823860B05009EBC9E /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F0211723860B05009EBC9E /* TimerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		76EA03C423834C6C009B3B12 /* assignment2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = assignment2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		76EA03C823834C6C009B3B12 /* assignment2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = assignment2Tests.swift; sourceTree = "<group>"; };
 		76EA03CA23834C6C009B3B12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96F0211723860B05009EBC9E /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				76EA03B323834C6A009B3B12 /* SceneDelegate.swift */,
 				76EA03B523834C6A009B3B12 /* ViewController.swift */,
 				76EA03B723834C6A009B3B12 /* Main.storyboard */,
+				96F0211723860B05009EBC9E /* TimerViewController.swift */,
 				76EA03BA23834C6C009B3B12 /* Assets.xcassets */,
 				76EA03BC23834C6C009B3B12 /* LaunchScreen.storyboard */,
 				76EA03BF23834C6C009B3B12 /* Info.plist */,
@@ -200,6 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96F0211823860B05009EBC9E /* TimerViewController.swift in Sources */,
 				76EA03B623834C6A009B3B12 /* ViewController.swift in Sources */,
 				76EA03B223834C6A009B3B12 /* AppDelegate.swift in Sources */,
 				76EA03B423834C6A009B3B12 /* SceneDelegate.swift in Sources */,
