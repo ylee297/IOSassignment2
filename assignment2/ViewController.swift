@@ -204,16 +204,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         progressbar.subviews[1].clipsToBounds = true
         /**************************************/
         /* current year setting */
-//        let date = Date()
-//        let calendar = Calendar.current
-//        let year = Double(calendar.component(.year, from: date))
-//        let month = Double(calendar.component(.month, from: date))/12.0
-//        let day = Double(calendar.component(.day, from: date))/365.0
-        // Approximately initial date used for comic
-        let year = Double(2012)
-        let month = Double(9)/12.0
-        let day = Double(23)/365.0
-        thisYear = Double(year + month + day)
+        thisYear = Double(2012)
         currentTime = Double(thisYear) - (pow(e,(20.3444 * pow(0.0,3.0) + 3.0)) - pow(e,3.0))
         /* default content */
         contents.text = history[0]
@@ -244,230 +235,244 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         
         progressPercent.text = String(round(1000*currentPercent)/1000) + "%"
-        if(currentTime < 0 ){
-            date.text = String(format: "%.0f years ago", (abs(currentTime)+thisYear))
-            print(currentTime)
-        } else {
-            let decimals = currentTime.truncatingRemainder(dividingBy: 1)
-            let month = Int(decimals / 0.12)
-            var monthText : String!
-            switch month {
-            case 0:
-                monthText  = "January"
-            case 1:
-                monthText  = "February"
-            case 2:
-                monthText  = "March"
-            case 3:
-                monthText  = "April"
-            case 4:
-                monthText  = "May"
-            case 5:
-                monthText  = "June"
-            case 6:
-                monthText  = "July"
-            case 7:
-                monthText  = "August"
-            case 8:
-                monthText  = "September"
-            case 9:
-                monthText  = "October"
-            case 10:
-                monthText  = "November"
-            case 11:
-                monthText  = "December"
-            default:
-                break
-            }
-            let monthDecimals = decimals.truncatingRemainder(dividingBy: 12)
-            let day = monthDecimals / 0.365
-            let text = String(monthText) + " " + String(Int(day)+1) + ", " + String(Int(currentTime/1))
-            date.text = text
-            //date.text = String(format: "%lf", Double(currentTime))
-        }
+        
         //update info
         updateInfo()
     }
 
     func updateInfo(){
-        if(currentTime <= thisYear-13751093099){contents.text = history[157]; stopTimer(); }
-        else if (currentTime <= thisYear-7514880608){contents.text = history[156] }
-        else if (currentTime <= thisYear-4156696645){contents.text = history[155] }
-        else if (currentTime <= thisYear-2326857711){contents.text = history[154] }
-        else if (currentTime <= thisYear-1318055081){contents.text = history[153] }
-        else if (currentTime <= thisYear-755416585){contents.text = history[152] }
-        else if (currentTime <= thisYear-438001584){contents.text = history[151] }
-        else if (currentTime <= thisYear-256890498){contents.text = history[150] }
+        if(currentTime <= thisYear-13751093099){contents.text = history[157]; updateDate(0); stopTimer(); }
+        else if (currentTime <= thisYear-7514880608){contents.text = history[156]; updateDate(0) }
+        else if (currentTime <= thisYear-4156696645){contents.text = history[155]; updateDate(0) }
+        else if (currentTime <= thisYear-2326857711){contents.text = history[154]; updateDate(0) }
+        else if (currentTime <= thisYear-1318055081){contents.text = history[153]; updateDate(0) }
+        else if (currentTime <= thisYear-755416585){contents.text = history[152]; updateDate(0)}
+        else if (currentTime <= thisYear-438001584){contents.text = history[151]; updateDate(0)}
+        else if (currentTime <= thisYear-256890498){contents.text = history[150]; updateDate(0) }
             
-        else if (currentTime <= thisYear-152387933){contents.text = history[149] }
-        else if (currentTime <= thisYear-91417696){contents.text = history[148] }
-        else if (currentTime <= thisYear-55454157){contents.text = history[147] }
-        else if (currentTime <= thisYear-34010190){contents.text = history[146] }
-        else if (currentTime <= thisYear-21086382){contents.text = history[145] }
-        else if (currentTime <= thisYear-13214786){contents.text = history[144] }
-        else if (currentTime <= thisYear-8370091){contents.text = history[143] }
-        else if (currentTime <= thisYear-5357462){contents.text = history[142] }
-        else if (currentTime <= thisYear-3464925){contents.text = history[141] }
-        else if (currentTime <= thisYear-2264025){contents.text = history[140] }
+        else if (currentTime <= thisYear-152387933){contents.text = history[149]; updateDate(0) }
+        else if (currentTime <= thisYear-91417696){contents.text = history[148]; updateDate(0)}
+        else if (currentTime <= thisYear-55454157){contents.text = history[147]; updateDate(0) }
+        else if (currentTime <= thisYear-34010190){contents.text = history[146]; updateDate(0) }
+        else if (currentTime <= thisYear-21086382){contents.text = history[145]; updateDate(0)}
+        else if (currentTime <= thisYear-13214786){contents.text = history[144]; updateDate(0) }
+        else if (currentTime <= thisYear-8370091){contents.text = history[143]; updateDate(0) }
+        else if (currentTime <= thisYear-5357462){contents.text = history[142]; updateDate(0) }
+        else if (currentTime <= thisYear-3464925){contents.text = history[141]; updateDate(0) }
+        else if (currentTime <= thisYear-2264025){contents.text = history[140]; updateDate(0) }
             
-        else if (currentTime <= thisYear-1494404){contents.text = history[139] }
-        else if (currentTime <= thisYear-996324){contents.text = history[138] }
-        else if (currentTime <= thisYear-670851){contents.text = history[137] }
-        else if (currentTime <= thisYear-456132){contents.text = history[136] }
-        else if (currentTime <= thisYear-313142){contents.text = history[135] }
-        else if (currentTime <= thisYear-217031){contents.text = history[134] }
-        else if (currentTime <= thisYear-151838){contents.text = history[133] }
-        else if (currentTime <= thisYear-107217){contents.text = history[132] }
-        else if (currentTime <= thisYear-76403){contents.text = history[131] }
-        else if (currentTime <= thisYear-54938){contents.text = history[130] }
+        else if (currentTime <= thisYear-1494404){contents.text = history[139]; updateDate(0) }
+        else if (currentTime <= thisYear-996324){contents.text = history[138] ; updateDate(0)}
+        else if (currentTime <= thisYear-670851){contents.text = history[137]; updateDate(0) }
+        else if (currentTime <= thisYear-456132){contents.text = history[136]; updateDate(0) }
+        else if (currentTime <= thisYear-313142){contents.text = history[135]; updateDate(0) }
+        else if (currentTime <= thisYear-217031){contents.text = history[134]; updateDate(0) }
+        else if (currentTime <= thisYear-151838){contents.text = history[133]; updateDate(0) }
+        else if (currentTime <= thisYear-107217){contents.text = history[132]; updateDate(0) }
+        else if (currentTime <= thisYear-76403){contents.text = history[131]; updateDate(0) }
+        else if (currentTime <= thisYear-54938){contents.text = history[130]; updateDate(0) }
             
-        else if (currentTime <= thisYear-39855){contents.text = history[129] }
-        else if (currentTime <= thisYear-29167){contents.text = history[128] }
-        else if (currentTime <= thisYear-21530){contents.text = history[127] }
-        else if (currentTime <= thisYear-16028){contents.text = history[126] }
-        else if (currentTime <= thisYear-12031){contents.text = history[125] }
-        else if (currentTime <= thisYear-9106){contents.text = history[124] }
-        else if (currentTime <= thisYear-6947){contents.text = history[123] }
-        else if (currentTime <= thisYear-5342){contents.text = history[122] }
-        else if (currentTime <= thisYear-4139){contents.text = history[121] }
-        else if (currentTime <= thisYear-3232){contents.text = history[120] }
+        else if (currentTime <= thisYear-39855){contents.text = history[129] ; updateDate(0)}
+        else if (currentTime <= thisYear-29167){contents.text = history[128] ; updateDate(0)}
+        else if (currentTime <= thisYear-21530){contents.text = history[127]; updateDate(0) }
+        else if (currentTime <= thisYear-16028){contents.text = history[126]; updateDate(0) }
+        else if (currentTime <= thisYear-12031){contents.text = history[125] ; updateDate(0)}
+        else if (currentTime <= thisYear-9106){contents.text = history[124]; updateDate(0) }
+        else if (currentTime <= thisYear-6947){contents.text = history[123]; updateDate(0) }
+        else if (currentTime <= thisYear-5342){contents.text = history[122]; updateDate(0) }
+        else if (currentTime <= thisYear-4139){contents.text = history[121]; updateDate(0) }
+        else if (currentTime <= thisYear-3232){contents.text = history[120]; updateDate(0) }
             
-        else if (currentTime <= thisYear-2542){contents.text = history[119] }
-        else if (currentTime <= thisYear-2014){contents.text = history[118] }
-        else if (currentTime <= thisYear-1607){contents.text = history[117] }
-        else if (currentTime <= thisYear-1291){contents.text = history[116] }
-        else if (currentTime <= thisYear-1044){contents.text = history[115] }
-        else if (currentTime <= thisYear-849){contents.text = history[114] }
-        else if (currentTime <= thisYear-695){contents.text = history[113] }
-        else if (currentTime <= thisYear-573){contents.text = history[112] }
-        else if (currentTime <= thisYear-474){contents.text = history[111] }
-        else if (currentTime <= thisYear-395){contents.text = history[110] }
+        else if (currentTime <= thisYear-2542){contents.text = history[119]; updateDate(0) }
+        else if (currentTime <= thisYear-2014){contents.text = history[118] ; updateDate(0)}
+        else if (currentTime <= thisYear-1607){contents.text = history[117] ; updateDate(0)}
+        else if (currentTime <= thisYear-1291){contents.text = history[116] ; updateDate(0)}
+        else if (currentTime <= thisYear-1044){contents.text = history[115] ; updateDate(0)}
+        else if (currentTime <= thisYear-849){contents.text = history[114] ; updateDate(0)}
+        else if (currentTime <= thisYear-695){contents.text = history[113] ; updateDate(0)}
+        else if (currentTime <= thisYear-573){contents.text = history[112]; updateDate(0) }
+        else if (currentTime <= thisYear-474){contents.text = history[111]; updateDate(0) }
+        else if (currentTime <= thisYear-395){contents.text = history[110]; updateDate(0) }
             
-        else if (currentTime <= thisYear-331){contents.text = history[109] }
-        else if (currentTime <= thisYear-278){contents.text = history[108] }
-        else if (currentTime <= thisYear-235){contents.text = history[107] }
-        else if (currentTime <= thisYear-200){contents.text = history[106] }
-        else if (currentTime <= thisYear-170){contents.text = history[105] }
-        else if (currentTime <= thisYear-146){contents.text = history[104] }
-        else if (currentTime <= thisYear-125){contents.text = history[103] }
-        else if (currentTime <= thisYear-108){contents.text = history[102] }
-        else if (currentTime <= thisYear-93.55){contents.text = history[101] }
-        else if (currentTime <= thisYear-81.16){contents.text = history[100] }
+        else if (currentTime <= thisYear-331){contents.text = history[109]; updateDate(0) }
+        else if (currentTime <= thisYear-278){contents.text = history[108]; updateDate(0) }
+        else if (currentTime <= thisYear-235){contents.text = history[107]; updateDate(0) }
+        else if (currentTime <= thisYear-200){contents.text = history[106]; updateDate(0) }
+        else if (currentTime <= thisYear-170){contents.text = history[105]; updateDate(0) }
+        else if (currentTime <= thisYear-146){contents.text = history[104]; updateDate(0) }
+        else if (currentTime <= thisYear-125){contents.text = history[103]; updateDate(0) }
+        else if (currentTime <= thisYear-108){contents.text = history[102]; updateDate(0) }
+        else if (currentTime <= thisYear-93.55){contents.text = history[101]; updateDate(0) }
+        else if (currentTime <= thisYear-81.16){contents.text = history[100]; updateDate(0) }
             
-        else if (currentTime <= thisYear-70.59){contents.text = history[99] }
-        else if (currentTime <= thisYear-61.54){contents.text = history[98] }
-        else if (currentTime <= thisYear-53.76){contents.text = history[97] }
-        else if (currentTime <= thisYear-47.06){contents.text = history[96] }
-        else if (currentTime <= thisYear-41.25){contents.text = history[95] }
-        else if (currentTime <= thisYear-36.20){contents.text = history[94] }
-        else if (currentTime <= thisYear-31.81){contents.text = history[93] }
-        else if (currentTime <= thisYear-27.97){contents.text = history[92] }
-        else if (currentTime <= thisYear-24.60){contents.text = history[91] }
-        else if (currentTime <= thisYear-21.64){contents.text = history[90] }
+        else if (currentTime <= thisYear-70.59){contents.text = history[99]; updateDate(0) }
+        else if (currentTime <= thisYear-61.54){contents.text = history[98]; updateDate(0) }
+        else if (currentTime <= thisYear-53.76){contents.text = history[97]; updateDate(0) }
+        else if (currentTime <= thisYear-47.06){contents.text = history[96]; updateDate(0) }
+        else if (currentTime <= thisYear-41.25){contents.text = history[95]; updateDate(0) }
+        else if (currentTime <= thisYear-36.20){contents.text = history[94]; updateDate(0) }
+        else if (currentTime <= thisYear-31.81){contents.text = history[93]; updateDate(0) }
+        else if (currentTime <= thisYear-27.97){contents.text = history[92]; updateDate(0) }
+        else if (currentTime <= thisYear-24.60){contents.text = history[91]; updateDate(0) }
+        else if (currentTime <= thisYear-21.64){contents.text = history[90]; updateDate(0) }
             
-        else if (currentTime <= thisYear-16.74){contents.text = history[89] }
-        else if (currentTime <= thisYear-16.47){contents.text = history[88] }
-        else if (currentTime <= thisYear-15.89){contents.text = history[87] }
-        else if (currentTime <= thisYear-15.08){contents.text = history[86] }
-        else if (currentTime <= thisYear-14.70){contents.text = history[85] }
-        else if (currentTime <= thisYear-14.55){contents.text = history[84] }
-        else if (currentTime <= thisYear-14.18){contents.text = history[83] }
-        else if (currentTime <= thisYear-13.30){contents.text = history[82] }
-        else if (currentTime <= thisYear-12.90){contents.text = history[81] }
-        else if (currentTime <= thisYear-12.35){contents.text = history[80] }
+        else if (currentTime <= thisYear-16.74){contents.text = history[89]; updateDate(0) }
+        else if (currentTime <= thisYear-16.47){contents.text = history[88]; updateDate(0) }
+        else if (currentTime <= thisYear-15.89){contents.text = history[87]; updateDate(0) }
+        else if (currentTime <= thisYear-15.08){contents.text = history[86]; updateDate(0) }
+        else if (currentTime <= thisYear-14.70){contents.text = history[85]; updateDate(0) }
+        else if (currentTime <= thisYear-14.55){contents.text = history[84]; updateDate(84) }
+        else if (currentTime <= thisYear-14.18){contents.text = history[83]; updateDate(83) }
+        else if (currentTime <= thisYear-13.30){contents.text = history[82]; updateDate(82) }
+        else if (currentTime <= thisYear-12.90){contents.text = history[81]; updateDate(81) }
+        else if (currentTime <= thisYear-12.35){contents.text = history[80]; updateDate(80) }
             
-        else if (currentTime <= thisYear-11.71){contents.text = history[79] }
-        else if (currentTime <= thisYear-11.31){contents.text = history[78] }
-        else if (currentTime <= thisYear-10.80){contents.text = history[77] }
-        else if (currentTime <= thisYear-10.72){contents.text = history[76] }
-        else if (currentTime <= thisYear-10.08){contents.text = history[75] }
-        else if (currentTime <= thisYear-10.03){contents.text = history[74] }
-        else if (currentTime <= thisYear-10.02){contents.text = history[73] }
-        else if (currentTime <= thisYear-9.89){contents.text = history[72] }
-        else if (currentTime <= thisYear-9.45){contents.text = history[71] }
-        else if (currentTime <= thisYear-9.17){contents.text = history[70] }
+        else if (currentTime <= thisYear-11.71){contents.text = history[79]; updateDate(79) }
+        else if (currentTime <= thisYear-11.31){contents.text = history[78]; updateDate(78) }
+        else if (currentTime <= thisYear-10.80){contents.text = history[77]; updateDate(77) }
+        else if (currentTime <= thisYear-10.72){contents.text = history[76]; updateDate(76) }
+        else if (currentTime <= thisYear-10.08){contents.text = history[75]; updateDate(75) }
+        else if (currentTime <= thisYear-10.03){contents.text = history[74]; updateDate(74) }
+        else if (currentTime <= thisYear-10.02){contents.text = history[73]; updateDate(73) }
+        else if (currentTime <= thisYear-9.89){contents.text = history[72]; updateDate(72) }
+        else if (currentTime <= thisYear-9.45){contents.text = history[71]; updateDate(71) }
+        else if (currentTime <= thisYear-9.17){contents.text = history[70]; updateDate(70) }
             
-        else if (currentTime <= thisYear-8.92){contents.text = history[69] }
-        else if (currentTime <= thisYear-8.88){contents.text = history[68] }
-        else if (currentTime <= thisYear-8.69){contents.text = history[67] }
-        else if (currentTime <= thisYear-8.22){contents.text = history[66] }
-        else if (currentTime <= thisYear-8.14){contents.text = history[65] }
-        else if (currentTime <= thisYear-7.93){contents.text = history[64] }
-        else if (currentTime <= thisYear-7.89){contents.text = history[63] }
-        else if (currentTime <= thisYear-7.78){contents.text = history[62] }
-        else if (currentTime <= thisYear-7.64){contents.text = history[61] }
-        else if (currentTime <= thisYear-7.52){contents.text = history[60] }
+        else if (currentTime <= thisYear-8.92){contents.text = history[69]; updateDate(60) }
+        else if (currentTime <= thisYear-8.88){contents.text = history[68]; updateDate(68) }
+        else if (currentTime <= thisYear-8.69){contents.text = history[67]; updateDate(67) }
+        else if (currentTime <= thisYear-8.22){contents.text = history[66]; updateDate(66) }
+        else if (currentTime <= thisYear-8.14){contents.text = history[65]; updateDate(65) }
+        else if (currentTime <= thisYear-7.93){contents.text = history[64]; updateDate(64) }
+        else if (currentTime <= thisYear-7.89){contents.text = history[63]; updateDate(63) }
+        else if (currentTime <= thisYear-7.78){contents.text = history[62]; updateDate(62) }
+        else if (currentTime <= thisYear-7.64){contents.text = history[61]; updateDate(61) }
+        else if (currentTime <= thisYear-7.52){contents.text = history[60]; updateDate(60) }
             
-        else if (currentTime <= thisYear-7.47){contents.text = history[59] }
-        else if (currentTime <= thisYear-7.00){contents.text = history[58] }
-        else if (currentTime <= thisYear-6.95){contents.text = history[57] }
-        else if (currentTime <= thisYear-6.88){contents.text = history[56] }
-        else if (currentTime <= thisYear-6.80){contents.text = history[55] }
-        else if (currentTime <= thisYear-6.72){contents.text = history[54] }
-        else if (currentTime <= thisYear-6.63){contents.text = history[53] }
-        else if (currentTime <= thisYear-6.52){contents.text = history[52] }
-        else if (currentTime <= thisYear-6.47){contents.text = history[51] }
-        else if (currentTime <= thisYear-6.30){contents.text = history[50] }
+        else if (currentTime <= thisYear-7.47){contents.text = history[59]; updateDate(59) }
+        else if (currentTime <= thisYear-7.00){contents.text = history[58]; updateDate(58) }
+        else if (currentTime <= thisYear-6.95){contents.text = history[57]; updateDate(57) }
+        else if (currentTime <= thisYear-6.88){contents.text = history[56]; updateDate(56) }
+        else if (currentTime <= thisYear-6.80){contents.text = history[55]; updateDate(55) }
+        else if (currentTime <= thisYear-6.72){contents.text = history[54]; updateDate(54) }
+        else if (currentTime <= thisYear-6.63){contents.text = history[53]; updateDate(53) }
+        else if (currentTime <= thisYear-6.52){contents.text = history[52]; updateDate(52) }
+        else if (currentTime <= thisYear-6.47){contents.text = history[51]; updateDate(51) }
+        else if (currentTime <= thisYear-6.30){contents.text = history[50]; updateDate(50) }
             
-        else if (currentTime <= thisYear-6.22){contents.text = history[49] }
-        else if (currentTime <= thisYear-6.14){contents.text = history[48] }
-        else if (currentTime <= thisYear-6.09){contents.text = history[47] }
-        else if (currentTime <= thisYear-6.02){contents.text = history[46] }
-        else if (currentTime <= thisYear-6.00){contents.text = history[45] }
-        else if (currentTime <= thisYear-5.86){contents.text = history[44] }
-        else if (currentTime <= thisYear-5.81){contents.text = history[43] }
-        else if (currentTime <= thisYear-5.76){contents.text = history[42] }
-        else if (currentTime <= thisYear-5.64){contents.text = history[41] }
-        else if (currentTime <= thisYear-5.58){contents.text = history[40] }
+        else if (currentTime <= thisYear-6.22){contents.text = history[49]; updateDate(49) }
+        else if (currentTime <= thisYear-6.14){contents.text = history[48]; updateDate(48) }
+        else if (currentTime <= thisYear-6.09){contents.text = history[47]; updateDate(47) }
+        else if (currentTime <= thisYear-6.02){contents.text = history[46]; updateDate(46) }
+        else if (currentTime <= thisYear-6.00){contents.text = history[45]; updateDate(45) }
+        else if (currentTime <= thisYear-5.86){contents.text = history[44]; updateDate(44) }
+        else if (currentTime <= thisYear-5.81){contents.text = history[43]; updateDate(43) }
+        else if (currentTime <= thisYear-5.76){contents.text = history[42]; updateDate(42) }
+        else if (currentTime <= thisYear-5.64){contents.text = history[41]; updateDate(41) }
+        else if (currentTime <= thisYear-5.58){contents.text = history[40]; updateDate(40) }
             
-        else if (currentTime <= thisYear-5.46){contents.text = history[39] }
-        else if (currentTime <= thisYear-5.39){contents.text = history[38] }
-        else if (currentTime <= thisYear-4.86){contents.text = history[37] }
-        else if (currentTime <= thisYear-4.82){contents.text = history[36] }
-        else if (currentTime <= thisYear-4.49){contents.text = history[35] }
-        else if (currentTime <= thisYear-4.35){contents.text = history[34] }
-        else if (currentTime <= thisYear-4.16){contents.text = history[33] }
-        else if (currentTime <= thisYear-3.94){contents.text = history[32] }
-        else if (currentTime <= thisYear-3.93){contents.text = history[31] }
-        else if (currentTime <= thisYear-3.78){contents.text = history[30] }
+        else if (currentTime <= thisYear-5.46){contents.text = history[39]; updateDate(39)}
+        else if (currentTime <= thisYear-5.39){contents.text = history[38]; updateDate(38) }
+        else if (currentTime <= thisYear-4.86){contents.text = history[37]; updateDate(37) }
+        else if (currentTime <= thisYear-4.82){contents.text = history[36]; updateDate(36) }
+        else if (currentTime <= thisYear-4.49){contents.text = history[35]; updateDate(35) }
+        else if (currentTime <= thisYear-4.35){contents.text = history[34]; updateDate(34) }
+        else if (currentTime <= thisYear-4.16){contents.text = history[33]; updateDate(33) }
+        else if (currentTime <= thisYear-3.94){contents.text = history[32]; updateDate(32) }
+        else if (currentTime <= thisYear-3.93){contents.text = history[31]; updateDate(31) }
+        else if (currentTime <= thisYear-3.78){contents.text = history[30] ; updateDate(30)}
         
-        else if (currentTime <= thisYear-3.55){contents.text = history[29] }
-        else if (currentTime <= thisYear-3.52){contents.text = history[28] }
-        else if (currentTime <= thisYear-3.05){contents.text = history[27] }
-        else if (currentTime <= thisYear-3.01){contents.text = history[26] }
-        else if (currentTime <= thisYear-2.53){contents.text = history[25] }
-        else if (currentTime <= thisYear-2.39){contents.text = history[24] }
-        else if (currentTime <= thisYear-2.11){contents.text = history[23] }
-        else if (currentTime <= thisYear-1.77){contents.text = history[22] }
-        else if (currentTime <= thisYear-1.75){contents.text = history[21] }
-        else if (currentTime <= thisYear-1.73){contents.text = history[20] }
+        else if (currentTime <= thisYear-3.55){contents.text = history[29]; updateDate(29) }
+        else if (currentTime <= thisYear-3.52){contents.text = history[28]; updateDate(28) }
+        else if (currentTime <= thisYear-3.05){contents.text = history[27]; updateDate(27) }
+        else if (currentTime <= thisYear-3.01){contents.text = history[26]; updateDate(26) }
+        else if (currentTime <= thisYear-2.53){contents.text = history[25]; updateDate(25) }
+        else if (currentTime <= thisYear-2.39){contents.text = history[24]; updateDate(24) }
+        else if (currentTime <= thisYear-2.11){contents.text = history[23]; updateDate(23) }
+        else if (currentTime <= thisYear-1.77){contents.text = history[22]; updateDate(22) }
+        else if (currentTime <= thisYear-1.75){contents.text = history[21]; updateDate(21) }
+        else if (currentTime <= thisYear-1.73){contents.text = history[20]; updateDate(20) }
         
-        else if (currentTime <= thisYear-1.70){contents.text = history[19] }
-        else if (currentTime <= thisYear-1.64){contents.text = history[18] }
-        else if (currentTime <= thisYear-1.63){contents.text = history[17] }
-        else if (currentTime <= thisYear-1.55){contents.text = history[16] }
-        else if (currentTime <= thisYear-1.50){contents.text = history[15] }
-        else if (currentTime <= thisYear-1.44){contents.text = history[14] }
-        else if (currentTime <= thisYear-1.43){contents.text = history[13] }
-        else if (currentTime <= thisYear-1.35){contents.text = history[12] }
-        else if (currentTime <= thisYear-1.33){contents.text = history[11] }
-        else if (currentTime <= thisYear-1.25){contents.text = history[10] }
+        else if (currentTime <= thisYear-1.70){contents.text = history[19]; updateDate(19) }
+        else if (currentTime <= thisYear-1.64){contents.text = history[18]; updateDate(18) }
+        else if (currentTime <= thisYear-1.63){contents.text = history[17]; updateDate(17) }
+        else if (currentTime <= thisYear-1.55){contents.text = history[16]; updateDate(16) }
+        else if (currentTime <= thisYear-1.50){contents.text = history[15]; updateDate(15) }
+        else if (currentTime <= thisYear-1.44){contents.text = history[14]; updateDate(14) }
+        else if (currentTime <= thisYear-1.43){contents.text = history[13]; updateDate(13) }
+        else if (currentTime <= thisYear-1.35){contents.text = history[12]; updateDate(12) }
+        else if (currentTime <= thisYear-1.33){contents.text = history[11]; updateDate(11) }
+        else if (currentTime <= thisYear-1.25){contents.text = history[10]; updateDate(10) }
         
-        else if (currentTime <= thisYear-1.18){contents.text = history[9] }
-        else if (currentTime <= thisYear-1.15){contents.text = history[8] }
-        else if (currentTime <= thisYear-1.12){contents.text = history[7] }
-        else if (currentTime <= thisYear-1.09){contents.text = history[6] }
-        else if (currentTime <= thisYear-1.04){contents.text = history[5] }
-        else if (currentTime <= thisYear-1.03){contents.text = history[4] }
-        else if (currentTime <= thisYear-1.02){contents.text = history[3] }
-        else if (currentTime <= thisYear-1.01){contents.text = history[2] }
-        else if (currentTime <= thisYear-0.95){contents.text = history[1] }
-        else {contents.text = history[0] }
+        else if (currentTime <= thisYear-1.18){contents.text = history[9]; updateDate(9) }
+        else if (currentTime <= thisYear-1.15){contents.text = history[8]; updateDate(8) }
+        else if (currentTime <= thisYear-1.12){contents.text = history[7]; updateDate(7) }
+        else if (currentTime <= thisYear-1.09){contents.text = history[6]; updateDate(6) }
+        else if (currentTime <= thisYear-1.04){contents.text = history[5]; updateDate(5) }
+        else if (currentTime <= thisYear-1.03){contents.text = history[4]; updateDate(4) }
+        else if (currentTime <= thisYear-1.02){contents.text = history[3]; updateDate(3) }
+        else if (currentTime <= thisYear-1.01){contents.text = history[2]; updateDate(2) }
+        else if (currentTime <= thisYear-0.95){contents.text = history[1]; updateDate(1) }
+        else {contents.text = history[0]; updateDate(0) }
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
+    }
+    
+    func updateDate(_ i: Int) {
+        if(currentTime < 0 ){
+            date.text = String(format: "%.0f years ago", (abs(currentTime)+thisYear))
+            print(currentTime)
+        } else {
+            switch i {
+            case 1: date.text = "December 10, 2011"
+            case 2: date.text = "November 18, 2011"
+            case 3: date.text = "November 11, 2011"
+            case 4: date.text = "November 9, 2011"
+            case 5: date.text = "November 5, 2011"
+            case 6: date.text = "October 20, 2011"
+            case 7: date.text = "October 12, 2011"
+            case 9: date.text = "September 17, 2011"
+            case 10: date.text = "August 20, 2011"
+            case 11: date.text = "July 22, 2011"
+            case 12: date.text = "July 16, 2011"
+            case 14: date.text = "June 12, 2011"
+            case 15: date.text = "May 21, 2011"
+            case 16: date.text = "May 2, 2011"
+            case 18: date.text = "April 2, 2011"
+            case 20: date.text = "February 26, 2011"
+            case 22: date.text = "February 10, 2011"
+            case 24: date.text = "July 1, 2010"
+            case 27: date.text = "October 22, 2009"
+            case 32: date.text = "December 1, 2008"
+            case 36: date.text = "January 24, 2008"
+            case 38: date.text = "July 29, 2007"
+            case 42: date.text = "February 14, 2007"
+            case 43: date.text = "January 30, 2007"
+            case 44: date.text = "January 9, 2007"
+            case 45: date.text = "November 19, 2006"
+            case 46: date.text = "November 11, 2006"
+            case 50: date.text = "August 1, 2005"
+            case 51: date.text = "June 1, 2005"
+            case 52: date.text = "May 12, 2005"
+            case 54: date.text = "March 1, 2005"
+            case 55: date.text = "February 1, 2005"
+            case 58: date.text = "November 21, 2004"
+            case 61: date.text = "April 1, 2004"
+            case 62: date.text = "February 9, 2004"
+            case 63: date.text = "January 1, 2004"
+            case 72: date.text = "September 11, 2001"
+            case 74: date.text = "October 23, 2001"
+            case 79: date.text = "March 24, 2000"
+            case 83: date.text = "September 15, 1997"
+            case 84: date.text = "May 1, 1997"
+            default:
+                date.text = String(format: "%.0f", currentTime)
+            }
+            
+        }
     }
     
     /** Not a requirement **/

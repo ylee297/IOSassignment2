@@ -14,8 +14,8 @@
             filePath = "assignment2/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "445"
-            endingLineNumber = "445"
+            startingLineNumber = "405"
+            endingLineNumber = "405"
             landmarkName = "updateInfo()"
             landmarkType = "7">
          </BreakpointContent>
